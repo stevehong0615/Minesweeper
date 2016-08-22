@@ -59,7 +59,7 @@ for ($row = 0; $row < $width; $row++) {
     for ($col = 0; $col < $height; $col++) {
         echo $grid[$row][$col];
     }
-    if ($row < 9){
+    if ($row < $width-1) {
         echo "N";
     }
 }
