@@ -1,0 +1,63 @@
+<?php
+// 預設
+$grid = array();
+$width = 10;
+$height = 10;
+$mines = 40;
+
+// 產生陣列
+for ($row = 0; $row < $width; $row++) {
+    for ($col = 0; $col < $height; $col++) {
+        $grid[$row][$col] = "0";
+    }
+}
+
+// 產生地雷
+for ($mine = 0; $mine < $mines; $mine++) {
+    $row = rand(0, $width-1);
+    $col = rand(0, $height-1);
+
+    // 沒跑過的座標為0 值改為M
+    if ($grid[$row][$col] == "0") {
+        $grid[$row][$col] = "M";
+    }
+}
+
+// 範圍內地雷個數
+for ($row = 0; $row < $width; $row++) {
+    for ($col = 0; $col < $height; $col++) {
+        if ($grid[$row][$col] == "M") {
+            if ($grid[$row][$col-1] != "M") {
+                $grid[$row][$col-1]++;
+            }
+            if ($grid[$row][$col+1] != "M") {
+                $grid[$row][$col+1]++;
+            }
+            if ($grid[$row+1][$col] != "M") {
+                $grid[$row+1][$col]++;
+            }
+            if ($grid[$row-1][$col] != "M") {
+                $grid[$row-1][$col]++;
+            }
+            if ($grid[$row-1][$col-1] != "M") {
+                $grid[$row-1][$col-1]++;
+            }
+            if ($grid[$row-1][$col+1] != "M") {
+                $grid[$row-1][$col+1]++;
+            }
+            if ($grid[$row+1][$col-1] != "M") {
+                $grid[$row+1][$col-1]++;
+            }
+            if ($grid[$row+1][$col+1] != "M") {
+                $grid[$row+1][$col+1]++;
+            }
+        }
+    }
+}
+
+for ($row = 0; $row < $width; $row++) {
+    for ($col = 0; $col < $height; $col++) {
+        echo $grid[$row][$col];
+    }
+    echo "N";
+}
