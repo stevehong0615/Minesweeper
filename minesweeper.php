@@ -17,6 +17,11 @@ for ($mine = 0; $mine < $mines; $mine++) {
     $row = rand(0, $width-1);
     $col = rand(0, $height-1);
 
+    // 檢查有沒有重複
+    if ($grid[$row][$col] == "M") {
+        $mine--;
+    }
+
     // 沒跑過的座標為0 值改為M
     if ($grid[$row][$col] == "0") {
         $grid[$row][$col] = "M";
