@@ -1,8 +1,8 @@
 <?php
 // 預設
 $grid = array();
-$width = 60;
-$height = 50;
+$width = 50;
+$height = 60;
 $mines = 1200;
 
 // 產生陣列
