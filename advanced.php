@@ -1,6 +1,5 @@
 <?php
 // 預設
-$iTime1 = microtime(true);
 $grid = array();
 $width = 60;
 $height = 50;
@@ -69,7 +68,3 @@ for ($row = 0; $row < $width; $row++) {
         echo "N";
     }
 }
-
-echo "<br>";
-$iTime2 = microtime(true);
-echo $iTime2 - $iTime1;
