@@ -43,10 +43,10 @@ if ($checkString == 100) {
                 }
                 if ($mapNoB[$a][$b] != $mineCount){
                     if($showRight == 0) {
-                        echo "不符合，因為<br>";
+                        echo "不符合，因為";
                         $showRight = 1;
                     }
-                    echo "<br>" . "[" . $a . " , " . $b . "]" . " 判斷錯誤，應該為" . $mineCount . "<br>";
+                    echo "[" . $a . " , " . $b . "]" . " 判斷錯誤，應該為" . $mineCount;
                     $check = false;
                 }
             }
@@ -82,8 +82,16 @@ if (mb_strlen($map) == 109) {
 
 // 不符合，字串長度小於109的判斷
 if (mb_strlen($map) < 109) {
-    if ($stringCount['M'] == 40 && $stringCount['N'] == 9) {
-        echo "不符合，因為字串長度小於109";
+    if ($stringCount['M'] == 40) {
+        if ($stringCount['N'] == 9) {
+            echo "不符合，因為字串長度小於109";
+        }
+        if ($stringCount['N'] < 9) {
+            echo "不符合，因為字串長度小於109，N小於9";
+        }
+        if ($stringCount['N'] > 9) {
+            echo "不符合，因為字串長度小於109，N大於9";
+        }
     }
     if ($stringCount['M'] < 40) {
         if ($stringCount['N'] == 9) {
@@ -111,8 +119,16 @@ if (mb_strlen($map) < 109) {
 
 // 不符合，字串長度大於109的判斷
 if (mb_strlen($map) > 109) {
-    if ($stringCount['M'] == 40 && $stringCount['N'] == 9) {
-        echo "不符合，因為字串長度大於109";
+    if ($stringCount['M'] == 40) {
+        if ($stringCount['N'] == 9) {
+            echo "不符合，因為字串長度大於109";
+        }
+        if ($stringCount['N'] < 9) {
+            echo "不符合，因為字串長度大於109，N小於9";
+        }
+        if ($stringCount['N'] > 9) {
+            echo "不符合，因為字串長度大於109，N大於9";
+        }
     }
     if ($stringCount['M'] < 40) {
         if ($stringCount['N'] == 9) {
@@ -137,8 +153,6 @@ if (mb_strlen($map) > 109) {
         }
     }
 }
-
-
 
 // 符合
 if (mb_strlen($map) == 109 && $stringCount['M'] == 40 && $stringCount['N'] == 9 && $checkString == 100 && $check == true) {
