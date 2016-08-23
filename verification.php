@@ -12,6 +12,7 @@ $stringCount = array_count_values($mapA);
 // 判斷炸彈周圍數字顯示是否正確
 if ($checkString == 100) {
     $check = true;
+    $showRight = 0 ;
     for ($a = 0; $a < 10; $a++) {
         for ($b = 0; $b < 10; $b++) {
 
@@ -42,6 +43,10 @@ if ($checkString == 100) {
                     $mineCount++;
                 }
                 if ($mapNoB[$a][$b] != $mineCount){
+                    if($showRight == 0) {
+                        echo "不符合，因為<br>";
+                        $showRight = 1;
+                    }
                     echo "<br>" . "[" . $a . " , " . $b . "]" . " 判斷錯誤，應該為" . $mineCount . "<br>";
                     $check = false;
                 }
