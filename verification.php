@@ -15,7 +15,6 @@ if ($checkString == 100) {
     $showRight = 0 ;
     for ($a = 0; $a < 10; $a++) {
         for ($b = 0; $b < 10; $b++) {
-
             $mineCount = 0;
             if ($mapNoB[$a][$b] != "M") {
                 if ($mapNoB[$a][$b-1] == "M") {
